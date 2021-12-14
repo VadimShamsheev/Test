@@ -1,0 +1,38 @@
+﻿<Window x:Class="Test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test"
+        mc:Ignorable="d"
+        Title="Главная страница" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="ButtonStyle">
+            <Setter Property="Control.Margin" Value="20"></Setter>
+            <Setter Property="Control.Background" Value="LightGreen"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="LightGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition MaxHeight="60"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition MaxHeight="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="4">Имя пользователя</TextBlock>
+        <Button Name="addButton" Grid.Row="3" Grid.Column="1" Style="{StaticResource ButtonStyle}" Content="Добавить"></Button>
+        <DataGrid InitializingNewItem="gridTitle_InitializingNewItem" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" x:Name="gridTitle" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Title" Binding="{Binding Path=Title}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Заголовок"  Binding="{Binding Path=Title2}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
